@@ -19,5 +19,5 @@ const { file, debug } = commander;
 if (file) fullpath = resolve(file);
 const o = getFastlaneAPI({ debug });
 const out = format(JSON.stringify(o), { parser: "json" });
-if (file) writeFileSync(file, out);
+if (file) writeFileSync(fullpath, out);
 else process.stdout.write(out);
