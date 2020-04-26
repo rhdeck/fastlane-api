@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rhdeck/fastlane-codegen.git"
+    "url": "git+https://github.com/rhdeck/fastlane-api.git"
   },
   "keywords": [
     "fastlane",
@@ -17,9 +17,9 @@
   "author": "Ray Deck",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rhdeck/fastlane-codegen/issues"
+    "url": "https://github.com/rhdeck/fastlane-api/issues"
   },
-  "homepage": "https://github.com/rhdeck/fastlane-codegen#readme",
+  "homepage": "https://github.com/rhdeck/fastlane-api#readme",
   "dependencies": {
     "@prettier/plugin-ruby": "^0.18.1",
     "commander": "^5.1.0",
