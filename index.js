@@ -16,9 +16,8 @@ const getFastlaneAPI = ({ debug }) => {
   if (!existsSync(fastlanepath)) mkdirSync(fastlanepath);
   const target = join(fastlanepath, "Fastfile");
   const { name: tempFile, removeCallback, ...stuff } = tmp.fileSync();
-  const out = format(mustache.render(template, { tempFile, ...codegen }), {
-    parser: "ruby",
-  });
+  const raw = mustache.render(template, { tempFile, ...codegen });
+  const out = format(raw, { parser: "ruby" });
   writeFileSync(target, out);
   spawnSync("bundle", ["exec", "fastlane", "codegen"]);
   const o = JSON.parse(readFileSync(tempFile, { encoding: "utf8" }));
