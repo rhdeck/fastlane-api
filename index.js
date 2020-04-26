@@ -19,6 +19,7 @@ const getFastlaneAPI = ({ debug }) => {
   const raw = mustache.render(template, { tempFile, ...codegen });
   const out = format(raw, { parser: "ruby" });
   writeFileSync(target, out);
+  process.chdir(__dirname);
   spawnSync("bundle", ["exec", "fastlane", "codegen"]);
   const o = JSON.parse(readFileSync(tempFile, { encoding: "utf8" }));
   if (!debug) {

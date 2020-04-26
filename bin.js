@@ -2,6 +2,7 @@
 const getFastlaneAPI = require(".");
 const { format } = require("prettier");
 const { writeFileSync } = require("fs");
+const { resolve } = require("path");
 const commander = require("commander");
 commander.description("Generate JSON-formatted API from Fastlane");
 commander.option(
@@ -15,6 +16,7 @@ commander.option(
 );
 commander.parse(process.argv);
 const { file, debug } = commander;
+if (file) fullpath = resolve(file);
 const o = getFastlaneAPI({ debug });
 const out = format(JSON.stringify(o), { parser: "json" });
 if (file) writeFileSync(file, out);
