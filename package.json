@@ -21,8 +21,11 @@
   },
   "homepage": "https://github.com/rhdeck/fastlane-codegen#readme",
   "dependencies": {
+    "@prettier/plugin-ruby": "^0.18.1",
+    "commander": "^5.1.0",
     "mustache": "^4.0.1",
     "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
     "tmp": "^0.2.0"
   },
   "codegen": {
@@ -56,5 +59,6 @@
       "skip_type_validation",
       "verify_block"
     ]
-  }
+  },
+  "bin": "./bin.js"
 }
