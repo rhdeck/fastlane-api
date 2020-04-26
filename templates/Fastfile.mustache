@@ -1,0 +1,24 @@
+default_platform(:ios)
+platform :ios do
+  desc "Generate Fastlane.js code"
+  lane :codegen do
+    actionsArr = []
+    out = []
+    ActionsList.all_actions do |action|
+      options = action.available_options || [] 
+      optionArr = []
+      options.each do | option |
+          thisdic = {
+            {{#options}}"{{.}}" => (option.respond_to? :{{.}}) ? option.{{.}} : nil,{{/options}}
+          }
+        optionArr << thisdic
+      end
+      actionObj = {
+        {{#actions}}"{{.}}" => (action.respond_to? :{{.}}) ? action.{{.}} : nil,{{/actions}}
+        "options" => optionArr
+      }
+      actionsArr << actionObj
+     end
+     File.write("{{{tempFile}}}", JSON.generate(actionsArr))
+ end
+end
