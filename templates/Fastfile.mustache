@@ -3,7 +3,6 @@ platform :ios do
   desc "Generate Fastlane.js code"
   lane :codegen do
     actionsArr = []
-    out = []
     ActionsList.all_actions do |action|
       options = action.available_options || [] 
       optionArr = []
@@ -18,7 +17,11 @@ platform :ios do
         "options" => optionArr
       }
       actionsArr << actionObj
-     end
-     File.write("{{{tempFile}}}", JSON.generate(actionsArr))
+    end
+    out = {
+      "version" => Fastlane::VERSION,
+      "actions" => actionsArr
+    }
+    File.write("{{{tempFile}}}", JSON.generate(out))
  end
 end
