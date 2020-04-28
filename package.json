@@ -1,6 +1,6 @@
 {
   "name": "fastlane-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate shape of fastlane actions and plugins API",
   "main": "index.js",
   "scripts": {
