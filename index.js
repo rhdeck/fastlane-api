@@ -7,7 +7,7 @@ const { spawnSync } = require("child_process");
 const tmp = require("tmp");
 const { format } = require("prettier");
 const { sync: rimraf } = require("rimraf");
-const getFastlaneAPI = ({ debug }) => {
+const getFastlaneAPI = ({ debug } = {}) => {
   const template = readFileSync(
     join(__dirname, "templates", "Fastfile.mustache"),
     { encoding: "utf8" }
